@@ -60,7 +60,7 @@ public class Main {
         }
     }
 
-    private static void agregarVisitante(Scanner scanner) {
+    private static void agregarVisitante(Scanner scanner) { //Si se agrega el mismo visitante (nombre y apellido), sus visitas aumentarán y además no registrará los demás atributos ya que se habían proporcionado antes
 
         System.out.print("Nombre del visitante: ");
         String nombre = scanner.next();
@@ -69,13 +69,13 @@ public class Main {
 
         for (Visitante visitante : listaVisitantes) {
 
-            if (visitante.getNombre().equals(nombre)&&visitante.getApellido().equals(apellido)) {
+            if (visitante.getNombre().equals(nombre)&&visitante.getApellido().equals(apellido)) { //La condicional evalúa si se había registrado a un visitante con el mismo nombre y apellido
 
                 System.out.println("Bienvenido nuevamente," + nombre + " " + apellido);
 
-                int visitas = visitante.getVisitas();
-                visitas = visitas + 1;
-                visitante.setVisitas(visitas);
+                int visitas = visitante.getVisitas(); //Obtiene las veces que un inquilino ha visitado el departamento de la lista de colecciones
+                visitas = visitas + 1; //A medida que el inquilino visita, su historial de visitas aumenta
+                visitante.setVisitas(visitas); //Actualiza el nuevo contador de visitas del inquilino
                 return;
             }
         }
@@ -89,7 +89,7 @@ public class Main {
             return;
         }
         boolean jubilado = false;
-        if (edad > 68)
+        if (edad > 68) //Comprueba si el inquilino es jubilado o no
             jubilado = true;
         System.out.print("Tipo de sangre del visitante: ");
         char tipodesangre;
@@ -129,7 +129,7 @@ public class Main {
                 if (edad > 68)
                     jubilado = true;
                 visitante.setEdad(edad);
-                visitante.setJubilado(jubilado);
+                visitante.setJubilado(jubilado); //Actualiza el estado de jubilación según la edad actualizada (Si pasa los 68)
                 return;
             }
         }
